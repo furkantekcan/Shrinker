@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 832760517}
   - component: {fileID: 832760516}
   m_Layer: 5
-  m_Name: Resume Button
+  m_Name: Replay Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,6 +841,7 @@ GameObject:
   - component: {fileID: 995030593}
   - component: {fileID: 995030592}
   - component: {fileID: 995030591}
+  - component: {fileID: 995030596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -962,6 +963,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995030596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995030590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50653c00f73406882845ca1b1e27d773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 340123417}
 --- !u!1 &1086577603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESUME
+  m_text: REPLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

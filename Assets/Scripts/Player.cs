@@ -27,9 +27,4 @@ public class Player : MonoBehaviour
         transform.RotateAround(Vector3.zero, -Vector3.forward, movement * Time.deltaTime * -moveSpeed);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour
             Debug.Log("Key down!");
             if (GameIsPaused)
             {
-                Resume();
+                Replay();
             }
             else
             {
@@ -25,6 +26,14 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void Replay()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -32,7 +41,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -43,5 +52,10 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quiting game!");
         Application.Quit();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        Pause();    
     }
 }
