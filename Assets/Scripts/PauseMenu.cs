@@ -11,12 +11,12 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Key down!");
             if (GameIsPaused)
             {
-                Replay();
+                Resume();
             }
             else
             {
@@ -52,10 +52,5 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quiting game!");
         Application.Quit();
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-        Pause();    
     }
 }

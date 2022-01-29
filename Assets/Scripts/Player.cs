@@ -8,13 +8,15 @@ public class Player : MonoBehaviour
 
     public float moveSpeed = 600f;
 
+    private PauseMenu pauseMenu;
+
     float movement;
     // Start is called before the first frame update
 
-    //void Start()
-    //{
-    //    
-    //}
+    void Start()
+    {
+        pauseMenu = FindObjectOfType<PauseMenu>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,9 +24,22 @@ public class Player : MonoBehaviour
         movement = Input.GetAxisRaw("Horizontal");
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() 
+    {
 
-        transform.RotateAround(Vector3.zero, -Vector3.forward, movement * Time.deltaTime * -moveSpeed);
+        transform.RotateAround(Vector3.zero, Vector3.forward, movement * Time.deltaTime * -moveSpeed);
     }
 
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.transform.name == "Trigger" )
+        {
+            Debug.Log("Score");
+        }
+        else
+        {
+           pauseMenu.Pause(); 
+        }
+        
+    }
 }
