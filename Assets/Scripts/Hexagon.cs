@@ -24,4 +24,20 @@ public class Hexagon : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void ChangeSpeed()
+    {
+        shrinkSpeed += 0.2f;
+        Debug.Log(shrinkSpeed);
+    }
+
+    private void OnEnable() 
+    {
+        Rotator.onTimeChanged += ChangeSpeed;
+    }
+
+    private void OnDisable() 
+    {
+        Rotator.onTimeChanged -= ChangeSpeed;    
+    }
 }

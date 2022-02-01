@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public delegate void onScoreAction();
+    public static event onScoreAction onScoreChanged;
 
     public float moveSpeed = 600f;
 
     private PauseMenu pauseMenu;
+    private float movement;
 
-    float movement;
     // Start is called before the first frame update
 
     void Start()
@@ -34,7 +36,10 @@ public class Player : MonoBehaviour
     {
         if (other.transform.name == "Trigger" )
         {
-            Debug.Log("Score");
+            if (onScoreChanged != null)
+            {
+                onScoreChanged();
+            }
         }
         else
         {
